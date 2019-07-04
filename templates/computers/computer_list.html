@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h2><a href="{% url 'computers:computer_list' %}">Computers</a></h2>
+
+    <ul>
+        {% for computer in object_list %}
+            <li>{{ computer.name }} ({{ computer.price }}$ )
+                <a href="{% url 'computers:computer_edit' computer.id %}">edit</a>
+                <a href="{% url 'computers:computer_delete' computer.id %}">delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'computers:computer_new' %}">New</a>
+
+{% endblock %}
